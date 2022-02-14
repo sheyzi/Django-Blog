@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="hero has-text-centered is-info">
+  <div class="hero-body">
+    <p class="title">
+      Django Blog
+    </p>
+    <p class="subtitle">
+      This is a blog created with Django by Sheyzi and Samuel
+    </p>
+  </div>
+</section>
+    <div class="my-4 container px-4">
+
+    {% for post in posts %}
+        <div class="card mt-4">
+
+            <header class="card-header">
+                    <h1 class="card-header-title is-size-3">{{ post.title }}</h1>
+            </header>
+
+            <div class="card-content">
+                <p>
+                    {{ post.short_description }}
+                </p>
+            </div>
+
+            <footer class="card-footer">
+                <a href="{% url 'post_details' post.id %}" class="card-footer-item">View Post</a>
+                <a href="#" class="card-footer-item">Edit Post</a>
+                <a href="#" class="card-footer-item">Delete Post</a>
+            </footer>
+
+        </div>
+    {% endfor %}
+        </div>
+
+{% endblock content %}
